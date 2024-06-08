@@ -1,0 +1,4 @@
+repository "DrukPartyApp@KPedroC@cloud"
+  path "/"
+    br "/main"
+    co "/main"
