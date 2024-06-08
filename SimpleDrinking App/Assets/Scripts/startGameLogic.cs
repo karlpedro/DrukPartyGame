@@ -14,8 +14,31 @@ public class StartScreenController : MonoBehaviour
 
     void Start()
     {
+        inputField.onValueChanged.AddListener(HandleValueChanged);
         addPlayerButton.onClick.AddListener(HandleButtonSubmit);
         startButton.onClick.AddListener(StartGame);
+    }
+
+    private void HandleValueChanged(string input)
+    {
+        // Check for newline character (Enter key press)
+        if (input.Contains("\n"))
+        {
+            // Remove the newline character
+            input = input.Replace("\n", "");
+
+            // Trim any leading or trailing whitespace from the input
+            input = input.Trim();
+
+            // Add player if the input is valid
+            if (!string.IsNullOrEmpty(input))
+            {
+                AddPlayer(input);
+                UpdatePlayerList();
+                inputField.text = ""; // Clear the input field after adding
+                inputField.ActivateInputField(); // Reactivate the input field for new input
+            }
+        }
     }
 
     private void HandleButtonSubmit()
@@ -24,6 +47,7 @@ public class StartScreenController : MonoBehaviour
         if (!string.IsNullOrEmpty(input))
         {
             AddPlayer(input);
+            UpdatePlayerList();
             inputField.text = ""; // Clear the input field after adding
             inputField.ActivateInputField(); // Reactivate the input field for new input
         }
@@ -32,12 +56,15 @@ public class StartScreenController : MonoBehaviour
     private void AddPlayer(string playerName)
     {
         playerNames.Add(playerName);
-        UpdatePlayerList();
     }
 
     private void UpdatePlayerList()
     {
-        playerListText.text = string.Join("\n", playerNames);
+        playerListText.text = ""; // Clear the text first
+        foreach (var name in playerNames)
+        {
+            playerListText.text += name + "\n"; // Append each player name with a newline
+        }
     }
 
     public void StartGame()
