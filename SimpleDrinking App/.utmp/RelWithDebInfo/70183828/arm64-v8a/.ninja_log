@@ -1,0 +1,11 @@
+# ninja log v5
+290	1671	7395519459567767	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	70db58aba7b01724
+53	3015	7395519472847686	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	cbcbf2478817560e
+110	3147	7395519472802477	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	74acf4b02db5cdca
+187	3382	7395519475283848	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	761a51e427fcc5de
+86	3471	7395519477231204	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	8a2706b24c326078
+221	3504	7395519477743447	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	d19c70a395b3058b
+30	3685	7395519479571815	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ccb95618f1ec374
+1673	3685	7395519472208330	C:/Users/karl_/Documents/GitHub/DrukPartygame/SimpleDrinking App/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/70183828/obj/arm64-v8a/libswappywrapper.so	6683178c686a1924
+1	4140	7395519484062592	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	154d21dd487e2f4f
+4140	4447	7395519486505501	C:/Users/karl_/Documents/GitHub/DrukPartygame/SimpleDrinking App/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/70183828/obj/arm64-v8a/libgame.so	c8f81d3832b5a4bc

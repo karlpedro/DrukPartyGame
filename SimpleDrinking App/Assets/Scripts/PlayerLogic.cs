@@ -4,62 +4,62 @@ public class PlayerLogic
 {
     private static Player[] players;
     public static int numberOfPlayers;
-    private static int rand;
-    private static int secRand;
+    private static int firstRand;
+    private static int secondRand;
+    private static int thirdRand;
     private static string lastPlayer;
 
     public static Player[] getPlayers() {
         return players;
     }
+
     public static Player getPlayerWithName(string name) {
-        Player tempPlayer = null;
-        if(name!=null) {
-            for(var i = 0; i < players.Length; i++) {
-                if(name.Equals(players[i].GetName())) {
-                    tempPlayer = players[i];
-                    break; 
+        if (name != null) {
+            for (var i = 0; i < players.Length; i++) {
+                if (name.Equals(players[i].GetName())) {
+                    return players[i];
                 }
             }
         }
-        return tempPlayer;
+        return null;
     }
+
     public static string FirstPlayer()
     {
-        rand = Random.Range(0, players.Length);
-        string playerName = players[rand].GetName();
-        lastPlayer = players[rand].GetName();
+        firstRand = Random.Range(0, players.Length);
+        string playerName = players[firstRand].GetName();
+        lastPlayer = playerName;
         return playerName;
     }
 
     public static string SecondPlayer()
     {
-        secRand = rand;
-        while (secRand == rand)
-        {
-            secRand = Random.Range(0, players.Length);
-        }
-        string playerName = players[secRand].GetName();
+        do {
+            secondRand = Random.Range(0, players.Length);
+        } while (secondRand == firstRand);
+
+        string playerName = players[secondRand].GetName();
+        lastPlayer = playerName;
         return playerName;
     }
 
     public static string ThirdPlayer()
     {
-        string playerName = "NULL";
         if (numberOfPlayers > 2)
         {
-            int thirdRand = rand;
-            while (thirdRand == rand || thirdRand == rand)
-            {
+            do {
                 thirdRand = Random.Range(0, players.Length);
-            }
-            playerName = players[thirdRand].GetName();
+            } while (thirdRand == firstRand || thirdRand == secondRand);
+
+            string playerName = players[thirdRand].GetName();
+            lastPlayer = playerName;
             return playerName;
         }
-        return playerName;
+        return "NULL";
     }
 
-    public static string getLastPlayer(){
-        return lastPlayer;;
+    public static string getLastPlayer() {
+        return lastPlayer;
     }
 
     public static void InitiatePlayers(int number)
