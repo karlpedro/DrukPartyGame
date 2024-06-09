@@ -166,13 +166,13 @@ public class TextOutputs : MonoBehaviour
             "Første spiller som kan vise minimum 100kr kontant, må give en bunder ud",
             "Første spiller som mobilpayer oplæser 10kr, må give en bunder",
             "Første spiller som rører ved et rødt objekt, må give 3 tårer ud",
-            "Sidste spiller som rører ved et blåt object, drikker 4 tårer"
+            "Sidste spiller som rører ved et blåt object, drikker 4 tårer",
             "Personen til højre fra oplæser, må give 2 tårer ud",
             "Personen til venstre fra oplæser, må give 2 tårer ud",
             "Personen til højre fra oplæser, drikker 2 tårer",
             "Personen til venstre fra oplæser, drikker 2 tårer",
             PlayerLogic.FirstPlayer() + " " + PlayerLogic.SecondPlayer() +". Åben en ny øl. Den som kan bunde hurtigst, må give en bunder til en anden spiller i lokalet",
-            PlayerLogic.FirstPlayer() + " giv 3 tårer ud af din egen drink til en spiller, eller drik 6 tårer selv"
+            PlayerLogic.FirstPlayer() + " giv 3 tårer ud af din egen drink til en spiller, eller drik 6 tårer selv",
             PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer() + " skal blive enige om en spiller som skal drikke 3 tårer",
             PlayerLogic.FirstPlayer() + " nyn en selvvalgt sang, første spiller som kan gætte den må give 3 tårer ud",
             PlayerLogic.FirstPlayer() + " du vælger selv hvor mange tårer " + PlayerLogic.SecondPlayer() + " drikker",
