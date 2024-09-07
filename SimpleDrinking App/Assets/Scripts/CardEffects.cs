@@ -17,6 +17,8 @@ public class CardEffects : MonoBehaviour
     public static Player king;
     public static Player tramand;
     public GameObject ruleButton;
+
+    public GameObject kingPrefab;
     
     public void ApplyEffect(CardEffectType effectType, string extraString) {
         player = PlayerLogic.getPlayerWithName(extraString);
@@ -72,16 +74,16 @@ public class CardEffects : MonoBehaviour
     private void BecomeKing(string playerName) {   
         player.IsKing(true);
         king = player;
-        kingText.text = "KING: "+playerName; //UI Display text
-        tempKingText = "KING: "+playerName; //Storing text for updating roundNumbers
-        kingText.gameObject.SetActive(true);
+        kingText.text = playerName; //UI Display text
+        tempKingText = playerName; //Storing text for updating roundNumbers
+        kingPrefab.SetActive(true);
         isKing = true;
         kingRounds = 21; //rounds -1
     }
 
     private void LoseKing() {
         overlayScript.SetLosingKing(king);
-        kingText.gameObject.SetActive(false);
+        kingPrefab.SetActive(false);
         king.IsKing(false);
         king = null;
         kingText.text = "";
