@@ -10,7 +10,6 @@ public class GridManagement : MonoBehaviour
     public Transform playerListContainer;
     public StartGameLogic startGameLogic;
 
-    // This method will be called by StartGameLogic to update the UI
     public void UpdatePlayerList(List<string> playerNames)
     {
         // Clear existing entries in the grid
@@ -28,14 +27,22 @@ public class GridManagement : MonoBehaviour
 
             playerText.text = name;
 
-            // Adjust the size of the entry dynamically
-            LayoutElement layoutElement = playerEntry.GetComponent<LayoutElement>();
-            if (layoutElement != null)
-            {
-                layoutElement.preferredWidth = CalculateWidthBasedOnText(name);
-                layoutElement.preferredHeight = 50; // Set a fixed height
-            }
+            // Ensure the Horizontal Layout Group handles the resizing
+            // Optionally adjust the text component settings here
 
+            // Ensure the button follows the text dynamically
+            RectTransform textRectTransform = playerText.GetComponent<RectTransform>();
+            RectTransform buttonRectTransform = removeButton.GetComponent<RectTransform>();
+
+            // Make sure the button has a fixed size
+            buttonRectTransform.sizeDelta = new Vector2(50, 50); // Adjust as needed
+
+            // Make sure the text expands
+            textRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, CalculateWidthBasedOnText(name));
+            
+            // Optionally, force an update of the layout group
+            LayoutRebuilder.ForceRebuildLayoutImmediate(playerEntry.GetComponent<RectTransform>());
+            
             // Set up the remove button to notify StartGameLogic when clicked
             removeButton.onClick.AddListener(() => RemovePlayer(name));
         }
@@ -44,19 +51,17 @@ public class GridManagement : MonoBehaviour
         AdjustGridLayoutGroup();
     }
 
-    // This method notifies StartGameLogic to remove the player from its list
+    private float CalculateWidthBasedOnText(string text)
+    {
+        TMP_Text tmpText = playerEntryPrefab.GetComponentInChildren<TMP_Text>();
+        tmpText.text = text;
+        return tmpText.preferredWidth;
+    }
+
     private void RemovePlayer(string playerName)
     {
         // Notify StartGameLogic to remove the player from its list
         startGameLogic.RemovePlayer(playerName);
-    }
-
-    private float CalculateWidthBasedOnText(string text)
-    {
-        // Adjust the width based on the length of the text
-        TMP_Text tmpText = playerEntryPrefab.GetComponentInChildren<TMP_Text>();
-        tmpText.text = text;
-        return tmpText.preferredWidth;
     }
 
     private void AdjustGridLayoutGroup()

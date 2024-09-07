@@ -5,6 +5,8 @@ public class Player
     private bool isKing;
     private bool isMand;
 
+     private int occurrenceCount;
+
     public Player(string name, int points)
     {
         this.playerName = name;
@@ -39,5 +41,15 @@ public class Player
     }
     public bool IsMmand(bool boolean) {
         return this.isMand;
+    }
+
+    public int GetOccurrenceCount()
+    {
+        return occurrenceCount;
+    }
+
+    public void IncrementOccurrenceCount()
+    {
+        occurrenceCount++;
     }
 }
