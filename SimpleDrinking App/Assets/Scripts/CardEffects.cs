@@ -38,6 +38,9 @@ public class CardEffects : MonoBehaviour
                 break;
             case CardEffectType.None:
                 break;
+            case CardEffectType.Reset:
+                ResetCardEffects();
+                break;
             default:
                 break;
         }
@@ -114,4 +117,30 @@ public class CardEffects : MonoBehaviour
             }
         }
     }
+
+    public void ResetCardEffects()
+    {
+        // Reset King and Træmand statuses
+        if (isKing)
+        {
+            LoseKing(); // Properly handle losing King status
+        }
+        
+        if (isTramand)
+        {
+            LoseTramand(); // Properly handle losing Træmand status
+        }
+
+        // Reset UI elements and internal variables
+        kingText.text = "";
+        tramandText.text = "";
+        isKing = false;
+        isTramand = false;
+        kingRounds = 0;
+        tramandRounds = 0;
+
+        kingPrefab.SetActive(false);
+        ruleButton.SetActive(false);
+    }
+
 }

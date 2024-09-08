@@ -12,9 +12,16 @@ public class TextOutputs : MonoBehaviour
     public CardEffects cardEffects;
     private int textListTotalSize = 0;
     public MostLikely mostLikely;
+
+    public GameOverLogic gameOverLogic;
     public void ChangeText()
     {
-        if(textList == null || textList.Count <= 0) {
+        if(textList == null) {
+            textList = StartText();
+        }
+        else if (textList.Count == 0)
+        {   
+            gameOverLogic.TriggerGameOver();
             textList = StartText();
         }
 
