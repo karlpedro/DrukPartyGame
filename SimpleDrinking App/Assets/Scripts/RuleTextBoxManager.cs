@@ -51,7 +51,6 @@ public class RuleTextBoxManager : MonoBehaviour
             currentInputField.onEndEdit.AddListener(OnInputFieldEndEdit);
 
             isActive = true; // Mark the input field as active
-            button.SetActive(true);
         }
     }
 
@@ -59,10 +58,10 @@ public class RuleTextBoxManager : MonoBehaviour
     {
         textOutPut.text = text;
         textOutPut.gameObject.SetActive(true);
+        button.SetActive(false);
         Destroy(currentInputField.gameObject);
         overlay.gameObject.SetActive(false);
         isActive = false; // Mark the input field as inactive
-        button.SetActive(false);
         currentInputField = null; // Reset reference
     }
 
