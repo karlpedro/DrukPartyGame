@@ -26,11 +26,12 @@ public class StartGameLogic : MonoBehaviour
 
     private void OnInputFieldEndEdit(string input)
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (!string.IsNullOrEmpty(input))
         {
             HandleButtonSubmit();
         }
     }
+
 
     private void HandleButtonSubmit()
     {
