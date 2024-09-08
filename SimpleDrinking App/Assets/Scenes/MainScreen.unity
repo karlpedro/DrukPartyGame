@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 869416581}
-  inputFieldPrefab: {fileID: 0}
+  inputFieldPrefab: {fileID: 2578692864795778971, guid: 69f6faaeb06388144b005da9b4ae420e, type: 3}
   inputFieldParent: {fileID: 791402265}
 --- !u!1 &1655317080
 GameObject:

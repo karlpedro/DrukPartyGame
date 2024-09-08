@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
 public class RuleTextBoxManager : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class RuleTextBoxManager : MonoBehaviour
                 Vector3 newPosition = inputFieldParent.position;
                 newPosition.y += 250f; 
                 currentInputField.transform.position = newPosition;
+                StartCoroutine(ActivateInputFieldAfterDelay(currentInputField));
             }
         }
         else if (!string.IsNullOrEmpty(currentInputField.text)){   
@@ -37,6 +40,22 @@ public class RuleTextBoxManager : MonoBehaviour
     public void ResetTextOutPut() {
         textOutPut.text = null;
         ResetTextOutPut();
+    }
+
+    IEnumerator ActivateInputFieldAfterDelay(TMP_InputField inputField)
+    {
+        // Wait until the end of the frame to make sure the input field is fully instantiated
+        yield return null;
+        
+        // Set focus to the input field and open the virtual keyboard
+        inputField.ActivateInputField();
+        inputField.Select();
+
+        // Optional: Force a delay to ensure the keyboard has time to open (adjust if necessary)
+        yield return new WaitForSeconds(0.1f);
+
+        // Ensure the TouchScreenKeyboard is opened for mobile devices
+        TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false);
     }
 }
 

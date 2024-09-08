@@ -77,9 +77,15 @@ public class TextOutputs : MonoBehaviour
             "Alle drikker en tår, for hver stykke sort tøj de har på",
             "Alle med t-shirt på, giv en tår ud",
             "Alle under 160cm drikker",
+            "Alle som har faldet i søvn i offentligt tranport under en brandert drikker",
+            "Alle som har prøvet farve deres hår drikker 3 tårer",
+            "Alle som har været i fitten denne uger drikker 2 tårer",
+            "Alle født i samme måned som " + PlayerLogic.FirstPlayer() + " drikker 3 tårer",
+            "Alle brunetter drikker",
+            "ALle som stod op efter kl 8 idag drikker",
+            "Alle singler drikker",
+            
         
-
-
             //Enkelt person drikker
             "Højeste person drikker",
             "Laveste person drikker",
@@ -126,6 +132,12 @@ public class TextOutputs : MonoBehaviour
             "Sidste person som slog op med en kæreste, drikker 2 tårer",
             "Den som har larmet mest dette spil drikker 3 tårer",
             PlayerLogic.FirstPlayer() + " drej rundt om dig selv 10 gange, eller drik 4 tårer",
+            PlayerLogic.FirstPlayer() + " fortæl en pinlig historie fra en brandert, eller drik 3 tårer",
+            PlayerLogic.FirstPlayer() + " hvis du forskellige typer alkohol idag, drik 3 tårer",
+            PlayerLogic.FirstPlayer() + " fortæl det mærkeligste sted du har vågnet op efter en fest",
+            PlayerLogic.FirstPlayer() + " drik en tår, for hver person født samme år som dig",
+            PlayerLogic.FirstPlayer() + " tag 3 tårer hvis du ikke kan spille noget musik instrument",
+
             
             
 
@@ -139,8 +151,7 @@ public class TextOutputs : MonoBehaviour
             "Oplæseren må dele 3 tårer ud",
             "Oplæseren må dele 3 tårer ud",
             "Første person som får øjenkontakt med oplæser, drikker 3 tårer",
-
-
+            "Alle født samme år som oplæser drikker",
 
 
             
@@ -172,6 +183,7 @@ public class TextOutputs : MonoBehaviour
             "MiniGame: TIMING. Start et stoppur på 1 min, den person som rammer tættest på 0 sekundter må give 5 tårer, folk som ikke når sige stop drikker 3 tårer",
             "MiniGame: Min Pik er...  Den første som gentager eller er gramatisk ukorrekt drikker 5 tårer. Alle ordene skal have samme forbogstav " + PlayerLogic.FirstPlayer() + " starter",
             "MiniGame: Telefonleg. " + PlayerLogic.FirstPlayer() + " skale viske et ord til venstre sidemand, dette fortsætter rundt. 5 straftårer til alle, hvis sidste person laver fejl",
+            "Minigame: Hobby. " + PlayerLogic.FirstPlayer() + " beskriv en hobby du har haft uden at fortælle hvad det er. Første person som gætter det, må give 3 tårer",
 
             
             //Giv tårer ud
@@ -202,6 +214,11 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " hvis du kan få en til tage en fake straf tår dette spil, skal de bunde",
             "Personen som forslog dette spil, må dele 5 tårer ud",
             PlayerLogic.FirstPlayer() + " vælg en kategori. Alle byder på, hvor mange de kan nævne. Den med det højeste bud skal nævne det antal. Lykkedes: Giv antallet af tårer. fejl: drik dem selv",
+            "Alle som har en tattoo kan vise en og give 2 tårer ud",
+            "Første person som tømmer deres glas, må give 5 tårer ud",
+            "Alle som tisser i badet, må give 2 tårer ud",
+            "Spilleren med mindst hår på hovedet, må dete 2 tårer ud",
+
 
 
 

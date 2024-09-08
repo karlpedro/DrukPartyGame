@@ -12,51 +12,42 @@ public class StartGameLogic : MonoBehaviour
     public GridManagement gridManagement;
 
     private List<string> playerNames = new List<string>();
-
-    private TouchScreenKeyboard keyboard;
-
     void Start()
     {
-        addPlayerButton.onClick.AddListener(HandleButtonSubmit);
+        addPlayerButton.onClick.AddListener(() => HandleButtonSubmit(inputField.text));
         startButton.onClick.AddListener(StartGame);
-        inputField.onEndEdit.AddListener(OnInputFieldEndEdit); // Add listener for the input field
+        inputField.onValueChanged.AddListener(OnInputFieldValueChanged);
+        inputField.onEndEdit.AddListener(OnInputFieldEndEdit);
         Screen.orientation = ScreenOrientation.Portrait;
 
-        // Make sure GridManagement has reference to this logic for removal purposes
         gridManagement.startGameLogic = this;
+    }
+
+    private void OnInputFieldValueChanged(string input)
+    {
+        // Check if the input contains a newline character
+        if (input.Contains("\n") || input.Contains("\r"))
+        {
+            // Replace newline characters with nothing and submit
+            string processedInput = input.Replace("\r", "").Replace("\n", "").Trim();
+            HandleButtonSubmit(processedInput);
+        }
     }
 
     private void OnInputFieldEndEdit(string input)
     {
-        // Handle the case where the input is submitted
-        if (IsSubmit(input))
+        // Ensure that end edit is correctly handling the input
+        string processedInput = input.Replace("\r", "").Replace("\n", "").Trim();
+        if (!string.IsNullOrEmpty(processedInput))
         {
-            HandleButtonSubmit();
+            HandleButtonSubmit(processedInput);
         }
     }
 
-    private bool IsSubmit(string input)
-    {
-        // On Android, use TouchScreenKeyboard to detect if the user has finished typing
-        if (keyboard != null && keyboard.done)
-        {
-            return true;
-        }
-        
-        // On desktop, check if the Enter key was pressed
-        return (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter));
-    }
-
-    public void OnInputFieldFocus()
-    {
-        // Initialize the TouchScreenKeyboard when the input field is focused
-        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false);
-    }
 
 
-    private void HandleButtonSubmit()
+    private void HandleButtonSubmit(string input)
     {
-        string input = inputField.text;
         if (!string.IsNullOrEmpty(input))
         {
             AddPlayer(input);
