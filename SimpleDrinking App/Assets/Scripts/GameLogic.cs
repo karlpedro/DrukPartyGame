@@ -15,32 +15,52 @@ public class GameLogic : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
+        // Automatically switch orientation based on device rotation
+        UpdateOrientation();
+
         if (touchActive)
         {
-            // Increment the touch time if touch is active
             touchTime += Time.deltaTime;
-
-            // Check if the touch duration has exceeded the hold threshold
             if (touchTime >= holdThreshold)
             {
                 isHolding = true;
             }
         }
 
-        // If touch ended and not holding
         if (Input.touchCount == 0 && touchActive)
         {
             if (!isHolding)
             {
-                // Short touch, handle click
                 HandleClick();
             }
 
-            // Reset touch state
             touchActive = false;
             isHolding = false;
             touchTime = 0f;
         }
+    }
+
+    private void UpdateOrientation()
+    {
+        // Convert device orientation to ScreenOrientation
+        if (Input.deviceOrientation == DeviceOrientation.LandscapeLeft)
+        {
+            SetLandscapeOrientation(ScreenOrientation.LandscapeLeft);
+        }
+        else if (Input.deviceOrientation == DeviceOrientation.LandscapeRight)
+        {
+            SetLandscapeOrientation(ScreenOrientation.LandscapeRight);
+        }
+    }
+
+    public void SetLandscapeOrientation(ScreenOrientation orientation)
+    {
+        if (orientation == Screen.orientation)
+        {
+            return; // Do nothing if the orientation is already set
+        }
+
+        Screen.orientation = orientation;
     }
 
     // Called when a touch is initiated on the panel (Android)

@@ -76,6 +76,7 @@ public class TextOutputs : MonoBehaviour
             "Alle med hul i sokkerne, må give 3 tårer ud",
             "Alle drikker en tår, for hver stykke sort tøj de har på",
             "Alle med t-shirt på, giv en tår ud",
+            "Alle under 160cm drikker",
         
 
 
@@ -124,6 +125,9 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer() + ". Den af jer med flest søskene, må give difference i tårer til den anden",
             "Sidste person som slog op med en kæreste, drikker 2 tårer",
             "Den som har larmet mest dette spil drikker 3 tårer",
+            PlayerLogic.FirstPlayer() + " drej rundt om dig selv 10 gange, eller drik 4 tårer",
+            
+            
 
             //Oplæser
             "Personen til højre fra oplæser, må give 2 tårer ud",
@@ -132,6 +136,9 @@ public class TextOutputs : MonoBehaviour
             "Personen til venstre fra oplæser, drikker 2 tårer",
             "Oplæseren drikker 3 tårer",
             "Oplæseren drikker 3 tårer",
+            "Oplæseren må dele 3 tårer ud",
+            "Oplæseren må dele 3 tårer ud",
+            "Første person som får øjenkontakt med oplæser, drikker 3 tårer",
 
 
 
@@ -164,6 +171,7 @@ public class TextOutputs : MonoBehaviour
             "MiniGame: 20 spørgsmål. " + PlayerLogic.FirstPlayer() + " tænker på en person eller ting. De andre spillere har 20 spørgsmål til at gætte hvad det er.",
             "MiniGame: TIMING. Start et stoppur på 1 min, den person som rammer tættest på 0 sekundter må give 5 tårer, folk som ikke når sige stop drikker 3 tårer",
             "MiniGame: Min Pik er...  Den første som gentager eller er gramatisk ukorrekt drikker 5 tårer. Alle ordene skal have samme forbogstav " + PlayerLogic.FirstPlayer() + " starter",
+            "MiniGame: Telefonleg. " + PlayerLogic.FirstPlayer() + " skale viske et ord til venstre sidemand, dette fortsætter rundt. 5 straftårer til alle, hvis sidste person laver fejl",
 
             
             //Giv tårer ud
@@ -192,6 +200,8 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " hvem ville du fortrække organiserede din næste rejse" + PlayerLogic.SecondPlayer()+ " eller " + PlayerLogic.ThirdPlayer() + " vinderen giver 3 tårer ud",
             PlayerLogic.FirstPlayer() + " giv en tår for hver A i dit fulde navn. Drik for hver E",
             PlayerLogic.FirstPlayer() + " hvis du kan få en til tage en fake straf tår dette spil, skal de bunde",
+            "Personen som forslog dette spil, må dele 5 tårer ud",
+            PlayerLogic.FirstPlayer() + " vælg en kategori. Alle byder på, hvor mange de kan nævne. Den med det højeste bud skal nævne det antal. Lykkedes: Giv antallet af tårer. fejl: drik dem selv",
 
 
 

@@ -36,6 +36,9 @@ public class MostLikely : MonoBehaviour
             "Most likely: ikke komme ind nogle stedet i aften, fordi de for fulde",
             "Most likely: Flirte med deres underviser, for ekstra credits",
             "Most likely: Dumpe sin køreprøve 10 gange",
+            "Most likely: Altid komme forsent",
+            "Most likely: Have sex med en fra spillets mor/far",
+            
         };
     }
 

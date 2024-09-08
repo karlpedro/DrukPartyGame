@@ -17,9 +17,19 @@ public class StartGameLogic : MonoBehaviour
     {
         addPlayerButton.onClick.AddListener(HandleButtonSubmit);
         startButton.onClick.AddListener(StartGame);
+        inputField.onEndEdit.AddListener(OnInputFieldEndEdit); // Add listener for the input field
+        Screen.orientation = ScreenOrientation.Portrait;
 
         // Make sure GridManagement has reference to this logic for removal purposes
         gridManagement.startGameLogic = this;
+    }
+
+    private void OnInputFieldEndEdit(string input)
+    {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            HandleButtonSubmit();
+        }
     }
 
     private void HandleButtonSubmit()
