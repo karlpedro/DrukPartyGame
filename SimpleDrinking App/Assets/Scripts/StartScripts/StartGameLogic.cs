@@ -13,6 +13,8 @@ public class StartGameLogic : MonoBehaviour
 
     private List<string> playerNames = new List<string>();
 
+    private TouchScreenKeyboard keyboard;
+
     void Start()
     {
         addPlayerButton.onClick.AddListener(HandleButtonSubmit);
@@ -26,10 +28,29 @@ public class StartGameLogic : MonoBehaviour
 
     private void OnInputFieldEndEdit(string input)
     {
-        if (!string.IsNullOrEmpty(input))
+        // Handle the case where the input is submitted
+        if (IsSubmit(input))
         {
             HandleButtonSubmit();
         }
+    }
+
+    private bool IsSubmit(string input)
+    {
+        // On Android, use TouchScreenKeyboard to detect if the user has finished typing
+        if (keyboard != null && keyboard.done)
+        {
+            return true;
+        }
+        
+        // On desktop, check if the Enter key was pressed
+        return (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter));
+    }
+
+    public void OnInputFieldFocus()
+    {
+        // Initialize the TouchScreenKeyboard when the input field is focused
+        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false);
     }
 
 

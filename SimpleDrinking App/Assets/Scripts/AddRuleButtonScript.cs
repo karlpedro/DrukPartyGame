@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Make sure to include this if you're working with InputField
+using UnityEngine.UI;
 
 public class AddRuleButtonScript : MonoBehaviour
 {
@@ -47,9 +47,27 @@ public class AddRuleButtonScript : MonoBehaviour
         // Instantiate the input field prefab
         TMP_InputField inputFieldObject = Instantiate(inputFieldPrefab, inputFieldParent);
 
-        // Set the input field as active and focus it
+        // Set the input field as active
         inputFieldObject.gameObject.SetActive(true);
-        inputFieldObject.ActivateInputField();
-        inputFieldObject.Select(); // Optionally set the focus on the input field
+
+        // Ensure the input field is selected and focused
+        StartCoroutine(ActivateInputFieldAfterDelay(inputFieldObject));
+    }
+
+    IEnumerator ActivateInputFieldAfterDelay(TMP_InputField inputField)
+    {
+        // Wait until the end of the frame to make sure the input field is fully instantiated
+        yield return null;
+        
+        // Set focus to the input field and open the virtual keyboard
+        inputField.ActivateInputField();
+        inputField.Select();
+
+        // For mobile devices, this will automatically open the keyboard
+        // Optional: Force a delay to ensure the keyboard has time to open (adjust if necessary)
+        yield return new WaitForSeconds(0.1f);
+
+        // Ensure the TouchScreenKeyboard is opened for mobile devices
+        TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false);
     }
 }
