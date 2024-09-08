@@ -40,6 +40,7 @@ public class GameOverLogic : MonoBehaviour
     }
 
     public void continueGame() {
+        cardEffects.ResetCardEffects();
         HideGameOver();
     }
 }

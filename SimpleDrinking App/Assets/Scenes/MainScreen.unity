@@ -2682,8 +2682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverOverlay: {fileID: 2144542417}
-  ruleTextBoxManager: {fileID: 0}
-  cardEffects: {fileID: 0}
+  ruleTextBoxManager: {fileID: 1663584680}
+  cardEffects: {fileID: 1663584679}
   overlayCanvasGroup: {fileID: 1959989440}
 --- !u!114 &2144542420
 MonoBehaviour:
