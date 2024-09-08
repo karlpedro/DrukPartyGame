@@ -1,7 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Collections;
 
 public class RuleTextBoxManager : MonoBehaviour
 {
@@ -11,42 +11,72 @@ public class RuleTextBoxManager : MonoBehaviour
     private TMP_InputField currentInputField; // Reference to the currently instantiated input field
     public TextMeshProUGUI textOutPut;
     public GameObject overlay;
-    
-    void Start() {
+    public GameObject button;
+
+    private bool isActive = false; // Track if the input field is active
+
+    void Start()
+    {
         textOutPut.text = null;
         textOutPut.gameObject.SetActive(false);
+        overlay.gameObject.SetActive(false);
+        button.SetActive(false);
     }
 
-    public void CreateInputField()
-    {   
-        if(!AddRuleButtonScript.isActive) {
-            if (currentInputField == null) {
-                currentInputField = Instantiate(inputFieldPrefab, inputFieldParent);
-
-                Vector3 newPosition = inputFieldParent.position;
-                newPosition.y += 250f; 
-                currentInputField.transform.position = newPosition;
-                StartCoroutine(ActivateInputFieldAfterDelay(currentInputField));
-            }
+    public void ToggleInputField()
+    {
+        if (!isActive)
+        {
+            CreateInputField();
         }
-        else if (!string.IsNullOrEmpty(currentInputField.text)){   
-            textOutPut.text = currentInputField.text;
-            textOutPut.gameObject.SetActive(true);
-            Destroy(currentInputField.gameObject);
-            overlay.gameObject.SetActive(false);
+        else if (currentInputField != null && !string.IsNullOrEmpty(currentInputField.text))
+        {
+            submitInputField(currentInputField.text);
         }
     }
 
-    public void ResetTextOutPut() {
+    private void CreateInputField()
+    {
+        if (currentInputField == null)
+        {
+            currentInputField = Instantiate(inputFieldPrefab, inputFieldParent);
+
+            Vector3 newPosition = inputFieldParent.position;
+            newPosition.y += 250f;
+            currentInputField.transform.position = newPosition;
+
+            StartCoroutine(ActivateInputFieldAfterDelay(currentInputField));
+
+            currentInputField.onValueChanged.AddListener(OnInputFieldValueChanged);
+            currentInputField.onEndEdit.AddListener(OnInputFieldEndEdit);
+
+            isActive = true; // Mark the input field as active
+            button.SetActive(true);
+        }
+    }
+
+    private void submitInputField(string text)
+    {
+        textOutPut.text = text;
+        textOutPut.gameObject.SetActive(true);
+        Destroy(currentInputField.gameObject);
+        overlay.gameObject.SetActive(false);
+        isActive = false; // Mark the input field as inactive
+        button.SetActive(false);
+        currentInputField = null; // Reset reference
+    }
+
+    public void ResetTextOutPut()
+    {
         textOutPut.text = null;
-        ResetTextOutPut();
+        // Any other reset logic if needed
     }
 
-    IEnumerator ActivateInputFieldAfterDelay(TMP_InputField inputField)
+    private IEnumerator ActivateInputFieldAfterDelay(TMP_InputField inputField)
     {
         // Wait until the end of the frame to make sure the input field is fully instantiated
         yield return null;
-        
+
         // Set focus to the input field and open the virtual keyboard
         inputField.ActivateInputField();
         inputField.Select();
@@ -57,5 +87,26 @@ public class RuleTextBoxManager : MonoBehaviour
         // Ensure the TouchScreenKeyboard is opened for mobile devices
         TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false);
     }
-}
 
+    private void OnInputFieldValueChanged(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return;
+        }
+        if (input.Contains("\n") || input.Contains("\r"))
+        {
+            // Replace newline characters with nothing and process
+            string processedInput = input.Replace("\r", "").Replace("\n", "").Trim();
+            submitInputField(processedInput);
+        }
+    }
+
+    private void OnInputFieldEndEdit(string input)
+    {
+        if (!string.IsNullOrEmpty(input))
+        {
+            submitInputField(input.Trim());
+        }
+    }
+}

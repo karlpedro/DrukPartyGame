@@ -1182,14 +1182,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239278552}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cecae0d24c668cb46a583dd6bdfcfcc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 869416581}
-  inputFieldPrefab: {fileID: 2578692864795778971, guid: 69f6faaeb06388144b005da9b4ae420e, type: 3}
-  inputFieldParent: {fileID: 791402265}
 --- !u!1 &1655317080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1391,7 @@ MonoBehaviour:
   inputFieldParent: {fileID: 791402265}
   textOutPut: {fileID: 1871735936}
   overlay: {fileID: 791402264}
+  button: {fileID: 1239278552}
 --- !u!114 &1663584681
 MonoBehaviour:
   m_ObjectHideFlags: 0
