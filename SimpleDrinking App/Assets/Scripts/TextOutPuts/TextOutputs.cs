@@ -159,15 +159,6 @@ public class TextOutputs : MonoBehaviour
             "Alle født samme år som oplæser drikker",
             "Oplæser trækker et nyt kort, hvis den nævner nogle personer, må oplæser selv vælge hvem",
             
-            //Most likely
-            mostLikely.GetRandMostLikely(),
-            mostLikely.GetRandMostLikely(),
-            mostLikely.GetRandMostLikely(),
-            mostLikely.GetRandMostLikely(),
-            mostLikely.GetRandMostLikely(),
-            mostLikely.GetRandMostLikely(),
-            mostLikely.GetRandMostLikely(),
-            
 
             //Minigames
             "MiniGame: Medusa. Alle holder sig for øjnene og åbner dem samtidig efter 3 sekunder. Alle som får øjenkontakt drikker",
@@ -260,12 +251,20 @@ public class TextOutputs : MonoBehaviour
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
-            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
-            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
-            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
-            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
-            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
-            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave)
+
+
+            //Most likely
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
+            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely)
         );
 
         textListTotalSize = newTextList.Count;

@@ -48,6 +48,9 @@ public class CardEffects : MonoBehaviour
             case CardEffectType.NeverHave:
                 NeverHaveEffect();
                 break;
+            case CardEffectType.MostLikely:
+                MostLikelyEffect();
+                break;
             default:
                 break;
         }
@@ -63,6 +66,11 @@ public class CardEffects : MonoBehaviour
     private void NeverHaveEffect() {
         Image panelImage = mainPanel.GetComponent<Image>();
         panelImage.color = new Color(0.2941f, 0.1569f, 0.0157f);
+    }
+
+    private void MostLikelyEffect() {
+        Image panelImage = mainPanel.GetComponent<Image>();
+        panelImage.color = new Color(0.0157f, 0.2941f, 0.0157f);
     }
 
     private void MakeRule(string playerName) {

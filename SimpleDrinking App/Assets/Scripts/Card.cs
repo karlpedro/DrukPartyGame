@@ -32,5 +32,6 @@ public enum CardEffectType
     BecomeTramand,
     MakeRule,
     NeverHave,
+    MostLikely,
     Reset
 }
