@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class CardEffects : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class CardEffects : MonoBehaviour
     public GameObject ruleButton;
 
     public GameObject kingPrefab;
+    public GameObject mainPanel;
     
     public void ApplyEffect(CardEffectType effectType, string extraString) {
         player = PlayerLogic.getPlayerWithName(extraString);
@@ -37,14 +40,29 @@ public class CardEffects : MonoBehaviour
                 MakeRule(extraString);
                 break;
             case CardEffectType.None:
+                NoCardEffect();
                 break;
             case CardEffectType.Reset:
                 ResetCardEffects();
+                break;
+            case CardEffectType.NeverHave:
+                NeverHaveEffect();
                 break;
             default:
                 break;
         }
         UpdateStatus();
+    }
+
+    private void NoCardEffect() {
+        Image panelImage = mainPanel.GetComponent<Image>();
+        panelImage.color = new Color(0.0667f, 0.0667f, 0.0667f);
+    }
+
+
+    private void NeverHaveEffect() {
+        Image panelImage = mainPanel.GetComponent<Image>();
+        panelImage.color = new Color(0.2941f, 0.1569f, 0.0157f);
     }
 
     private void MakeRule(string playerName) {

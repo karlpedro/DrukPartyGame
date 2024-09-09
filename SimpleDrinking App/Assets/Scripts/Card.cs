@@ -31,5 +31,6 @@ public enum CardEffectType
     LoseKing,
     BecomeTramand,
     MakeRule,
+    NeverHave,
     Reset
 }

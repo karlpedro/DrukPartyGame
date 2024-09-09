@@ -2,6 +2,8 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+
 
 public class TextOutputs : MonoBehaviour
 {   
@@ -12,6 +14,7 @@ public class TextOutputs : MonoBehaviour
     public CardEffects cardEffects;
     private int textListTotalSize = 0;
     public MostLikely mostLikely;
+    public NeverHave neverHave;
 
     public GameOverLogic gameOverLogic;
     public void ChangeText()
@@ -56,7 +59,6 @@ public class TextOutputs : MonoBehaviour
             "Drik hvis du var fuld igår",
             "Alle drikker 2 tårer",
             "SKÅL!!",
-            "SKÅL!!",
             "DrengeSkål",
             "DrengeSkål",
             "Dame Skål",
@@ -72,15 +74,12 @@ public class TextOutputs : MonoBehaviour
             "Alle med et kondom på sig drikker",
             "Alle der drikker øl skåler",
             "Alle der har røget denne uge drikker",
-            "Alle som har kysset en i dette rum drikker",
+            "Alle som har snavet en i dette rum drikker",
             "Alle med en datingapp instalerret drikker",
-            "Alle som har haft sex med en i dette rum, drikker",
-            "Alle med en story/Bereal oppe lige nu, drikker",
             "Alle med sko på drikker",
             "Alle med læbestift på, drik 4 tårer",
             "Færdigør din drink, hvis du har drukket mindre end 2 genstande siden spillet startede",
             "Alle hvis drink indeholder vodka eller rom, drikker 4 tårer",
-            "Alle med hul i sokkerne, må give 3 tårer ud",
             "Alle drikker en tår, for hver stykke sort tøj de har på",
             "Alle med t-shirt på, giv en tår ud",
             "Alle under 160cm drikker",
@@ -96,7 +95,6 @@ public class TextOutputs : MonoBehaviour
             //Enkelt person drikker
             "Højeste person drikker",
             "Laveste person drikker",
-            "Personen som har været single længst, må give 3 tårer",
             "Sidste person med fingeren på næsen drikker 5 tårer",
             "Drik for hver tatovering eller piercing du har",
             "Sidste person med panden mod bordet drikker",
@@ -112,7 +110,7 @@ public class TextOutputs : MonoBehaviour
             "Sidste person som ankom til festen, drikker 4 tårer",
             "Alle stem på personen som sidder mest på sin telefon i dette spil. \"vinderen\" drikker 5 tårer. Spiltelefonen tæller ikke ;)",
             PlayerLogic.FirstPlayer() + " har sniper næste 2 min. (Tæl højlydt mens du kigger på en person, de skal sige STOP, og drikke det antal tårer)",
-            PlayerLogic.FirstPlayer() + " vis de sidste billeder på din kamerarulle, eller drik 5 tårer",
+            PlayerLogic.FirstPlayer() + " vis de sidste 5 billeder på din kamerarulle, eller drik 5 tårer",
             PlayerLogic.FirstPlayer() + " vælger en at drikke 4 tårer med",
             PlayerLogic.FirstPlayer() + " drikker 3 tårer",
             PlayerLogic.FirstPlayer() + " stirrerkonkurrence mod " + PlayerLogic.SecondPlayer()+ ". Taberen drikker 3 tårer",
@@ -159,10 +157,11 @@ public class TextOutputs : MonoBehaviour
             "Oplæseren må dele 3 tårer ud",
             "Første person som får øjenkontakt med oplæser, drikker 3 tårer",
             "Alle født samme år som oplæser drikker",
-
-
+            "Oplæser trækker et nyt kort, hvis den nævner nogle personer, må oplæser selv vælge hvem",
             
             //Most likely
+            mostLikely.GetRandMostLikely(),
+            mostLikely.GetRandMostLikely(),
             mostLikely.GetRandMostLikely(),
             mostLikely.GetRandMostLikely(),
             mostLikely.GetRandMostLikely(),
@@ -225,8 +224,8 @@ public class TextOutputs : MonoBehaviour
             "Første person som tømmer deres glas, må give 5 tårer ud",
             "Alle som tisser i badet, må give 2 tårer ud",
             "Spilleren med mindst hår på hovedet, må dete 2 tårer ud",
-
-
+            "Alle med hul i sokkerne, må give 3 tårer ud",
+            "Personen som har været single længst, må give 3 tårer",
 
 
 
@@ -236,19 +235,39 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " du spillets bitch. Hent drinks of snacks til folk, indtil en ny bitch bliver udvalgt.",
             PlayerLogic.FirstPlayer() + " du spillets bitch. Hent drinks of snacks til folk, indtil en ny bitch bliver udvalgt.",
             PlayerLogic.FirstPlayer() + " og "+ PlayerLogic.SecondPlayer()+ " er drinkin buddies, i begge drikker alle tårer sammen",
-            PlayerLogic.FirstPlayer() + " du drikker 1 tår fra enhver, der får mere end 1 tår, indtil der kommer et nyt kort med dit navn igen."
+            PlayerLogic.FirstPlayer() + " du drikker 1 tår hver gang nogle får en tår, indtil der kommer et nyt kort med dit navn igen."
 
         );
 
         AddCardsWithEffect(
+
+            // Roles
             (PlayerLogic.FirstPlayer() + " er kongen i 20 rundter. Deres ord er lov", CardEffectType.BecomeKing, PlayerLogic.getLastPlayer()), 
             (PlayerLogic.FirstPlayer() + " er kongen i 20 rundter. Deres ord er lov", CardEffectType.BecomeKing, PlayerLogic.getLastPlayer()),
-            (PlayerLogic.FirstPlayer() + " er træmand i 20 rundter. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
             (PlayerLogic.FirstPlayer() + " er træmand i 20 rundter. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
             (PlayerLogic.FirstPlayer() + " er træmand i 20 rundter. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
             (PlayerLogic.FirstPlayer() + " Lav en regel, eller fjerne en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer()),
             (PlayerLogic.FirstPlayer() + " Lav en regel, eller fjerne en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer())
         );
+
+        AddCardsWithEffect( 
+            // Never have i ever
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave)
+        );
+
         textListTotalSize = newTextList.Count;
         textListCount.gameObject.SetActive(true);
 
@@ -309,12 +328,21 @@ public class TextOutputs : MonoBehaviour
         }
     }
     public void AddCardsWithEffect(params (string description, CardEffectType effectType, string extraString)[] cards)
+{
+    foreach ((string description, CardEffectType effectType, string extraString) in cards)
     {
-        foreach ((string description, CardEffectType effectType, string extraString) in cards)
-        {
-            newTextList.Add(new Card(description, effectType, extraString));
-        }
+        // Handle default case
+        newTextList.Add(new Card(description, effectType, extraString));
     }
+}
+
+    public void AddCardsWithEffect(params (string description, CardEffectType effectType)[] cards)
+    {
+        // Convert 2-element tuples to 3-element tuples with extraString as null
+        var extendedCards = cards.Select(c => (description: c.description, effectType: c.effectType, extraString: (string)null)).ToArray();
+        AddCardsWithEffect(extendedCards);
+    }
+
 
 }
 

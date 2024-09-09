@@ -97,18 +97,6 @@ public class PlayerLogic
         if (player != null)
         {
             player.IncrementOccurrenceCount();
-            PrintPlayerOccurrences(); // Print occurrences after increment
-        }
-    }
-
-    private static void PrintPlayerOccurrences()
-    {
-        foreach (var player in players)
-        {
-            if (player != null)
-            {
-                Debug.Log(player.GetName() + " has been selected " + player.GetOccurrenceCount() + " times.");
-            }
         }
     }
 }

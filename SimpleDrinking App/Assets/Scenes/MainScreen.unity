@@ -1858,6 +1858,7 @@ GameObject:
   - component: {fileID: 1663584679}
   - component: {fileID: 1663584680}
   - component: {fileID: 1663584681}
+  - component: {fileID: 1663584682}
   m_Layer: 0
   m_Name: Logik
   m_TagString: Untagged
@@ -1880,7 +1881,8 @@ MonoBehaviour:
   textListCount: {fileID: 2120356070}
   textMeshProText: {fileID: 566333534}
   cardEffects: {fileID: 1663584679}
-  mostLikely: {fileID: 1663584681}
+  mostLikely: {fileID: 1663584682}
+  neverHave: {fileID: 1663584681}
   gameOverLogic: {fileID: 2144542419}
 --- !u!4 &1663584676
 Transform:
@@ -1931,6 +1933,7 @@ MonoBehaviour:
   overlayScript: {fileID: 1663584678}
   ruleButton: {fileID: 1239278552}
   kingPrefab: {fileID: 579235918}
+  mainPanel: {fileID: 315281113}
 --- !u!114 &1663584680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1949,6 +1952,18 @@ MonoBehaviour:
   overlay: {fileID: 791402264}
   button: {fileID: 1239278552}
 --- !u!114 &1663584681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663584673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7a8ab8ded987e46bdbe1ea1eee4859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1663584682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
