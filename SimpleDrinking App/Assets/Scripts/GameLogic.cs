@@ -73,7 +73,6 @@ public class GameLogic : MonoBehaviour, IPointerDownHandler
 
     private void HandleClick()
     {
-        Debug.Log("Is rules button active?: " + rulesButton.activeSelf);
         if (!overlayObject.activeSelf)
         {
             textOut.ChangeText();
