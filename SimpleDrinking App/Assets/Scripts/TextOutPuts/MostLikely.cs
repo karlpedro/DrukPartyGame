@@ -65,6 +65,7 @@ public class MostLikely : MonoBehaviour
             "Mest tilbøjlig: til være fuldtids alkoholiker i fremtiden",
             "Mest tilbøjlig: til at blive kidnappet",
             "Mest tilbøjlig: til stadig bo hos deres forældre om 10 år",
+            "Mest tilbøjlig: til tænde på " + PlayerLogic.FirstPlayer()
             
 
         };

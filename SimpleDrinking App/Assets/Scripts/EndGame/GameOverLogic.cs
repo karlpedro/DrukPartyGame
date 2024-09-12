@@ -39,7 +39,7 @@ public class GameOverLogic : MonoBehaviour
         Screen.orientation = ScreenOrientation.Portrait;
     }
 
-    public void continueGame() {
+    public void ContinueGame() {
         cardEffects.ResetCardEffects();
         HideGameOver();
     }

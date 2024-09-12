@@ -60,6 +60,7 @@ public class NeverHave : MonoBehaviour
             "Jeg har aldrig: kysset med personen der læser dette op",
             "Jeg har aldrig: brugt sex legetøj",
             "Jeg har aldrig: haft en god samtale med "+ PlayerLogic.FirstPlayer(),
+            "Jeg har aldrig: haft skæg"
 
         };
     }

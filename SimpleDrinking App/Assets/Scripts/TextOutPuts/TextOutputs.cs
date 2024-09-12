@@ -90,6 +90,7 @@ public class TextOutputs : MonoBehaviour
             "Alle brunetter drikker",
             "ALle som stod op efter kl 8 idag drikker",
             "Alle singler drikker",
+            "Alle som ikke har festet denne måned, drikker 3 tårer",
             
         
             //Enkelt person drikker
@@ -118,7 +119,7 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer() + " drikker 5 tårer",
             PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer() + " laver sten, saks, papir om en bunder",
             PlayerLogic.FirstPlayer() + " drikker X antal tårer. Personen til højre drikker 1 tår mindre, dette fortsætter til højre indtil 0 tårer.",
-            PlayerLogic.FirstPlayer() + " gæt farven på "+ PlayerLogic.SecondPlayer() + "s undertøj. Giv 3 tårer ud, hvis du gætter, ellers drik dem selv",
+            PlayerLogic.FirstPlayer() + " gæt farven på "+ PlayerLogic.SecondPlayer() + "s undertøj. Giv 3 tårer, hvis du gætter, ellers drik dem selv",
             PlayerLogic.FirstPlayer() + " skål med den der vil tage sig af dig, når du har drukket for meget i dag",
             PlayerLogic.FirstPlayer()+ " og " + PlayerLogic.SecondPlayer() + ". Tommefingerkrig. Taberen drikker 3 tårer",
             PlayerLogic.FirstPlayer()+ " nævn " + PlayerLogic.SecondPlayer() + " fødseldag eller drik 3 tårer",
@@ -142,22 +143,39 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " fortæl det mærkeligste sted du har vågnet op efter en fest",
             PlayerLogic.FirstPlayer() + " drik en tår, for hver person født samme år som dig",
             PlayerLogic.FirstPlayer() + " tag 3 tårer hvis du ikke kan spille noget musik instrument",
-
-            
+            PlayerLogic.FirstPlayer() + " skål med din bedste ven i gruppen",
+            PlayerLogic.FirstPlayer() + " skål med den du taler mindst i gruppen",
+            "Alle spillere som kan få toppen af et glas i deres mund, må give 2 tårer ud",
             
 
             //Oplæser
-            "Personen til højre fra oplæser, må give 2 tårer ud",
-            "Personen til venstre fra oplæser, må give 2 tårer ud",
+            "Personen til højre fra oplæser, må give 2 tårer",
+            "Personen til venstre fra oplæser, må give 2 tårer",
             "Personen til højre fra oplæser, drikker 2 tårer",
             "Personen til venstre fra oplæser, drikker 2 tårer",
             "Oplæseren drikker 3 tårer",
             "Oplæseren drikker 3 tårer",
-            "Oplæseren må dele 3 tårer ud",
-            "Oplæseren må dele 3 tårer ud",
+            "Oplæseren må give 3 tårer",
+            "Oplæseren må give 3 tårer",
             "Første person som får øjenkontakt med oplæser, drikker 3 tårer",
             "Alle født samme år som oplæser drikker",
-            "Oplæser trækker et nyt kort, hvis den nævner nogle personer, må oplæser selv vælge hvem",
+            "Oplæser trækker et nyt kort, han må frit ændre personer eller vælge personer på dette kort",
+            "Oplæser trækker et nyt kort, han må frit ændre personer eller vælge personer på dette kort",
+            "Oplæseren drik 3 tårer, og træk et nyt kort",
+            "Oplæseren drik 3 tårer, og træk et nyt kort",
+            "Oplæseren drik 3 tårer, spillet skifter retning",
+            "Oplæseren drik 3 tårer, spillet skifter retning",
+            "Giv telefonen til en valgfri person",
+            "Oplæseren drik 2 tårer. Giv derefter telefonen til en valgfri person",
+            "Oplæseren drik 2 tårer. Giv derefter telefonen til en valgfri person",
+            "Første person som highfiver oplæser, drikker 3 tårer",
+            "Første person som kysser oplæsers kind, må give 5 tårer",
+            "Næster oplæser bliver skippet, og bunder ud",
+            "Oplæser trækker et nyt kort, tårer på næste kort giver dobbelt",
+            "Oplæser trækker et nyt kort, tårer på næste kort giver dobbelt",
+
+
+
             
 
             //Minigames
@@ -165,10 +183,8 @@ public class TextOutputs : MonoBehaviour
             "MiniGame: Vandfald. " + PlayerLogic.FirstPlayer() + " starter",
             "MiniGame: Jeg har aldrig. " + PlayerLogic.FirstPlayer() + " starter",
             "MiniGame: Back 2 Back. " + PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer()+ ". Til 3 rigtige i streg",
-            "MiniGame: Back 2 Back. " + PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer()+ ". Til 3 rigtige i streg",
             "MiniGame: Two Truths and a Lie. " + PlayerLogic.FirstPlayer() + " fortæl 2 sandheder og en løgn. Alle skal gætte løgnen, taberne drikker",
-            "MiniGame: Two Truths and a Lie. " + PlayerLogic.FirstPlayer() + " fortæl 2 sandheder og en løgn. Alle skal gætte løgnen, taberne drikker",
-            "MiniGame: "+ PlayerLogic.FirstPlayer() +", tænk på en frugt du ville putte i røven. Første som gætter, må give 3 tårer. "+ PlayerLogic.SecondPlayer() +" starter",
+            "MiniGame: Røvfrugt. "+ PlayerLogic.FirstPlayer() +", tænk på en frugt du ville putte i røven. Første som gætter, må give 3 tårer. "+ PlayerLogic.SecondPlayer() +" starter",
             "MiniGame: Kategori. "+ PlayerLogic.FirstPlayer()+ " find på en kategori. Fejl eller gentagelser drikker 3 tårer",
             "MiniGame: Kategori. "+ PlayerLogic.FirstPlayer()+ " find på en kategori. Fejl eller gentagelser drikker 3 tårer",
             "MiniGame: DrengeNavne. "+ PlayerLogic.FirstPlayer() + " starter siger et drengenavn der starter med A, næste person skal fortsætte med et drengenavn med samme forbogstav, som det sidste navn sluttede på. Fortsæt til en fejler, straf: 3 tårer",
@@ -180,43 +196,45 @@ public class TextOutputs : MonoBehaviour
             "MiniGame: TIMING. Start et stoppur på 1 min, den person som rammer tættest på 0 sekundter må give 5 tårer, folk som ikke når sige stop drikker 3 tårer",
             "MiniGame: Min Pik er...  Den første som gentager eller er gramatisk ukorrekt drikker 5 tårer. Alle ordene skal have samme forbogstav " + PlayerLogic.FirstPlayer() + " starter",
             "MiniGame: Telefonleg. " + PlayerLogic.FirstPlayer() + " skale viske et ord til venstre sidemand, dette fortsætter rundt. 5 straftårer til alle, hvis sidste person laver fejl",
-            "Minigame: Hobby. " + PlayerLogic.FirstPlayer() + " beskriv en hobby du har haft uden at fortælle hvad det er. Første person som gætter det, må give 3 tårer",
+            "MiniGame: Hobby. " + PlayerLogic.FirstPlayer() + " beskriv en hobby du har haft uden at fortælle hvad det er. Første person som gætter det, må give 3 tårer",
+            "MiniGame: Bytur. " + PlayerLogic.FirstPlayer() + " fortæl en kort oplevelse fra en bytur. Alle skal stemme om du lyver. Dem der tager fejl drikker 3 tårer",
+            "MiniGame: Nynne. " + PlayerLogic.FirstPlayer() + " nynner en sang, de andre skal gætte. Første person som gætter, må give 3 tårer",
 
-            
-            //Giv tårer ud
+            //Giv tårer
             "Første spiller der kan finde et trekantet objekt i rummet, må give 5 tårer",
             "Første spiller der kan finde et objekt, som kunne bruges som en penis i rummet, må give 3 tårer",
             "Første spiller der kan finde et rundt objekt i rummet, må give 3 tårer",
             "Første spiller som kan vise minimum 100kr kontant, må give en bunder ud",
-            "Første spiller som mobilpayer oplæser 10kr, må give en bunder",
-            "Første spiller som rører ved et rødt objekt, må give 3 tårer ud",
+            "Første spiller som mobilpayer telefonens ejer 10kr, må give en bunder",
+            "Første spiller som rører ved et rødt objekt, må give 3 tårer",
             "Sidste spiller som rører ved et blåt object, drikker 4 tårer",
-            PlayerLogic.FirstPlayer() + " " + PlayerLogic.SecondPlayer() +". Åben en ny øl. Den som kan bunde hurtigst, må give en bunder til en anden spiller i lokalet",
-            PlayerLogic.FirstPlayer() + " giv 3 tårer ud af din egen drink til en spiller, eller drik 6 tårer selv",
+            PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer() +". Åben en ny øl. Den som kan bunde hurtigst, må give en bunder til en anden spiller i lokalet",
+            PlayerLogic.FirstPlayer() + " vælg en spiller som skal tage 3 tårer af din drink, eller de kan tage 6 af deres egen",
             PlayerLogic.FirstPlayer() + " og " + PlayerLogic.SecondPlayer() + " skal blive enige om en spiller som skal drikke 3 tårer",
-            PlayerLogic.FirstPlayer() + " nyn en selvvalgt sang, første spiller som kan gætte den må give 3 tårer ud",
             PlayerLogic.FirstPlayer() + " du vælger selv hvor mange tårer " + PlayerLogic.SecondPlayer() + " drikker",
             PlayerLogic.FirstPlayer() + " du vælger selv hvor mange tårer " + PlayerLogic.SecondPlayer() + " og " + PlayerLogic.ThirdPlayer() + " drikker",
-            PlayerLogic.FirstPlayer() + " giv 5 tårer ud",
-            PlayerLogic.FirstPlayer() + " giv 3 tårer ud",
-            PlayerLogic.FirstPlayer() + " vælg en som må give 5 tårer ud",
+            PlayerLogic.FirstPlayer() + " giv 5 tårer",
+            PlayerLogic.FirstPlayer() + " giv 3 tårer",
+            PlayerLogic.FirstPlayer() + " vælg en som må give 5 tårer",
             PlayerLogic.FirstPlayer() + " giv 4 tårer til en som er laver end dig, hvis der ikke er nogen, drikker du dem selv",
             PlayerLogic.FirstPlayer() + " giv 4 tårer til en som er højere end dig, hvis der ikke er nogen, drikker du dem selv",
             PlayerLogic.FirstPlayer() + " giv 3 tårer til den hotteste, du kan godt vælge dig selv, lille svin",
             PlayerLogic.FirstPlayer() + " nævn navne på personer som " + PlayerLogic.SecondPlayer() + " har været i seng med. Giv det antal tårer. Hvis du ikke kan en, drik 4",
             PlayerLogic.FirstPlayer()+ " og " + PlayerLogic.SecondPlayer() + " skal give en overdreven imitering af "+ PlayerLogic.ThirdPlayer()+ ". Resten bedømmer, vinderen giver 5 tårer",
             "giv 3 tårer, hvis du kan slikke din albue",
-            PlayerLogic.FirstPlayer() + " hvem ville du fortrække organiserede din næste rejse" + PlayerLogic.SecondPlayer()+ " eller " + PlayerLogic.ThirdPlayer() + " vinderen giver 3 tårer ud",
+            PlayerLogic.FirstPlayer() + " hvem ville du fortrække organiserede din næste rejse" + PlayerLogic.SecondPlayer()+ " eller " + PlayerLogic.ThirdPlayer() + " vinderen må give 3 tårer",
             PlayerLogic.FirstPlayer() + " giv en tår for hver A i dit fulde navn. Drik for hver E",
             PlayerLogic.FirstPlayer() + " hvis du kan få en til tage en fake straf tår dette spil, skal de bunde",
-            "Personen som forslog dette spil, må dele 5 tårer ud",
+            "Personen som forslog dette spil, må dele 5 tårer",
             PlayerLogic.FirstPlayer() + " vælg en kategori. Alle byder på, hvor mange de kan nævne. Den med det højeste bud skal nævne det antal. Lykkedes: Giv antallet af tårer. fejl: drik dem selv",
-            "Alle som har en tattoo kan vise en og give 2 tårer ud",
-            "Første person som tømmer deres glas, må give 5 tårer ud",
-            "Alle som tisser i badet, må give 2 tårer ud",
-            "Spilleren med mindst hår på hovedet, må dete 2 tårer ud",
-            "Alle med hul i sokkerne, må give 3 tårer ud",
+            "Alle som har en tattoo kan vise en og give 2 tårer",
+            "Første person som tømmer deres glas, må give 5 tårer",
+            "Alle som tisser i badet, må give 2 tårer",
+            "Spilleren med mindst hår på hovedet, må dete 2 tårer",
+            "Alle med hul i sokkerne, må give 3 tårer",
             "Personen som har været single længst, må give 3 tårer",
+            "Personen med den længste tunge må give 3 tårer",
+            PlayerLogic.FirstPlayer() + " du må give 3 tårer, hvis du kan snakke 3 eller flere sprog",
 
 
 
@@ -233,12 +251,12 @@ public class TextOutputs : MonoBehaviour
         AddCardsWithEffect(
 
             // Roles
-            (PlayerLogic.FirstPlayer() + " er kongen i 20 rundter. Deres ord er lov", CardEffectType.BecomeKing, PlayerLogic.getLastPlayer()), 
-            (PlayerLogic.FirstPlayer() + " er kongen i 20 rundter. Deres ord er lov", CardEffectType.BecomeKing, PlayerLogic.getLastPlayer()),
-            (PlayerLogic.FirstPlayer() + " er træmand i 20 rundter. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
-            (PlayerLogic.FirstPlayer() + " er træmand i 20 rundter. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
-            (PlayerLogic.FirstPlayer() + " Lav en regel, eller fjerne en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer()),
-            (PlayerLogic.FirstPlayer() + " Lav en regel, eller fjerne en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer())
+            (PlayerLogic.FirstPlayer() + " er kongen de næste 20 kort. Deres ord er lov", CardEffectType.BecomeKing, PlayerLogic.getLastPlayer()), 
+            (PlayerLogic.FirstPlayer() + " er kongen de næste 20 kort. Deres ord er lov", CardEffectType.BecomeKing, PlayerLogic.getLastPlayer()),
+            (PlayerLogic.FirstPlayer() + " er træmand de næste 20 kort. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
+            (PlayerLogic.FirstPlayer() + " er træmand de næste 20 kort. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
+            (PlayerLogic.FirstPlayer() + " Lav en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer()),
+            (PlayerLogic.FirstPlayer() + " Lav en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer())
         );
 
         AddCardsWithEffect( 
@@ -251,11 +269,10 @@ public class TextOutputs : MonoBehaviour
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
+            (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
 
 
             //Most likely
-            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
-            (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
             (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
             (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
             (mostLikely.GetRandMostLikely(), CardEffectType.MostLikely),
