@@ -13,6 +13,7 @@ public class GameLogic : MonoBehaviour, IPointerDownHandler
     private float touchTime = 0f;
     private bool touchActive = false;
 
+
     void Update()
     {
         // Automatically switch orientation based on device rotation
