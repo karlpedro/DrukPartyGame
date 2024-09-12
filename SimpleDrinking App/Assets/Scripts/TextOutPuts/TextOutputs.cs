@@ -146,6 +146,7 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " skål med din bedste ven i gruppen",
             PlayerLogic.FirstPlayer() + " skål med den du taler mindst i gruppen",
             "Alle spillere som kan få toppen af et glas i deres mund, må give 2 tårer ud",
+            "Næste person som griner, drikker 3 tårer. Folk må gerne sabotere",
             
 
             //Oplæser
@@ -197,8 +198,9 @@ public class TextOutputs : MonoBehaviour
             "MiniGame: Min Pik er...  Den første som gentager eller er gramatisk ukorrekt drikker 5 tårer. Alle ordene skal have samme forbogstav " + PlayerLogic.FirstPlayer() + " starter",
             "MiniGame: Telefonleg. " + PlayerLogic.FirstPlayer() + " skale viske et ord til venstre sidemand, dette fortsætter rundt. 5 straftårer til alle, hvis sidste person laver fejl",
             "MiniGame: Hobby. " + PlayerLogic.FirstPlayer() + " beskriv en hobby du har haft uden at fortælle hvad det er. Første person som gætter det, må give 3 tårer",
-            "MiniGame: Bytur. " + PlayerLogic.FirstPlayer() + " fortæl en kort oplevelse fra en bytur. Alle skal stemme om du lyver. Dem der tager fejl drikker 3 tårer",
+            "MiniGame: Fuld eller Barn. " + PlayerLogic.FirstPlayer() + " fortæl noget du dumt du har gjort. Alle stemmer om du var fuld eller barn. Taberne drikker 3 tårer",
             "MiniGame: Nynne. " + PlayerLogic.FirstPlayer() + " nynner en sang, de andre skal gætte. Første person som gætter, må give 3 tårer",
+            "MiniGame: Match Ord. "+ PlayerLogic.FirstPlayer()+ " og " + PlayerLogic.SecondPlayer() + ", vælg en makker hver. Hvert hold skiftes til sige et enkelt ord samtidig. Første hold som siger det samme ord, må give 3 tårer",
 
             //Giv tårer
             "Første spiller der kan finde et trekantet objekt i rummet, må give 5 tårer",
