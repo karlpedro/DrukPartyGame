@@ -174,9 +174,6 @@ public class TextOutputs : MonoBehaviour
             "Næster oplæser bliver skippet, og bunder ud",
             "Oplæser trækker et nyt kort, tårer på næste kort giver dobbelt",
             "Oplæser trækker et nyt kort, tårer på næste kort giver dobbelt",
-
-
-
             
 
             //Minigames
@@ -193,8 +190,6 @@ public class TextOutputs : MonoBehaviour
             "MiniGame: Gæt en coctail. " + PlayerLogic.FirstPlayer()+ " tænker på en drink. Hver spiller stiller et ja/nej spørgsmål. Nej giver 1 tår." +PlayerLogic.SecondPlayer() + " starter",
             "MiniGame: Fuck, Marry, Kill. "+ PlayerLogic.FirstPlayer()+ " kom med 3 fiktive personer. " + PlayerLogic.SecondPlayer() + " skal vælge fuck marry kill blandt dem",
             "MiniGame: Fuck, Marry, Kill. "+ PlayerLogic.FirstPlayer()+ " kom med 3 ægte personer. " + PlayerLogic.SecondPlayer() + " skal vælge fuck marry kill blandt dem",
-            "MiniGame: 20 spørgsmål. " + PlayerLogic.FirstPlayer() + " tænker på en person eller ting. De andre spillere har 20 spørgsmål til at gætte hvad det er.",
-            "MiniGame: TIMING. Start et stoppur på 1 min, den person som rammer tættest på 0 sekundter må give 5 tårer, folk som ikke når sige stop drikker 3 tårer",
             "MiniGame: Min Pik er...  Den første som gentager eller er gramatisk ukorrekt drikker 5 tårer. Alle ordene skal have samme forbogstav " + PlayerLogic.FirstPlayer() + " starter",
             "MiniGame: Telefonleg. " + PlayerLogic.FirstPlayer() + " skale viske et ord til venstre sidemand, dette fortsætter rundt. 5 straftårer til alle, hvis sidste person laver fejl",
             "MiniGame: Hobby. " + PlayerLogic.FirstPlayer() + " beskriv en hobby du har haft uden at fortælle hvad det er. Første person som gætter det, må give 3 tårer",
@@ -228,7 +223,6 @@ public class TextOutputs : MonoBehaviour
             PlayerLogic.FirstPlayer() + " giv en tår for hver A i dit fulde navn. Drik for hver E",
             PlayerLogic.FirstPlayer() + " hvis du kan få en til tage en fake straf tår dette spil, skal de bunde",
             "Personen som forslog dette spil, må dele 5 tårer",
-            PlayerLogic.FirstPlayer() + " vælg en kategori. Alle byder på, hvor mange de kan nævne. Den med det højeste bud skal nævne det antal. Lykkedes: Giv antallet af tårer. fejl: drik dem selv",
             "Alle som har en tattoo kan vise en og give 2 tårer",
             "Første person som tømmer deres glas, må give 5 tårer",
             "Alle som tisser i badet, må give 2 tårer",
@@ -258,10 +252,17 @@ public class TextOutputs : MonoBehaviour
             (PlayerLogic.FirstPlayer() + " er træmand de næste 20 kort. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
             (PlayerLogic.FirstPlayer() + " er træmand de næste 20 kort. Hver gang nogle skåler med træmand, drikker træmand med", CardEffectType.BecomeTramand, PlayerLogic.getLastPlayer()),
             (PlayerLogic.FirstPlayer() + " Lav en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer()),
-            (PlayerLogic.FirstPlayer() + " Lav en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer())
+            (PlayerLogic.FirstPlayer() + " Lav en regel", CardEffectType.MakeRule , PlayerLogic.getLastPlayer()), 
+
+            ("MiniGame: TIMING. Start et stoppur på 30 sekundter, den person som rammer tættest på 0 sekundter må give 5 tårer, folk som ikke når sige stop drikker 3 tårer", CardEffectType.Timer, "30"),
+            ("MiniGame: Hot Shotato. Start tiden. 1 eller flere shots bliver givet rundt i circlen. Når tiden ringer, drikker taberne shotsne", CardEffectType.Timer, "45"),
+            ("MiniGame: Gæt et object. " + PlayerLogic.FirstPlayer() + " tænker på et object i rummet. De andre spillere har 2 minuter gætte hvad det er.", CardEffectType.Timer, "120" ),
+            ("Minigame: Hven kan flest. "+PlayerLogic.FirstPlayer() + " vælg en kategori. Alle byder på hvor mange ting de kan sige indenfor kategorien på 30 sekundter.\n\n Højeste bud spiller om give/tage 5 tårer", CardEffectType.Timer, "30" ),
+            ("Minigame: Hven kan flest. "+PlayerLogic.FirstPlayer() + " vælg en kategori. Alle byder på hvor mange ting de kan sige indenfor kategorien på 30 sekundter.\n\n Højeste bud spiller om give/tage 5 tårer", CardEffectType.Timer, "30" )
         );
 
-        AddCardsWithEffect( 
+        AddCardsWithEffect(
+
             // Never have i ever
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),
             (neverHave.GetRandNeverHave(), CardEffectType.NeverHave),

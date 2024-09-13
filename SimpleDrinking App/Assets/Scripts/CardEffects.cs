@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class CardEffects : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class CardEffects : MonoBehaviour
 
     public GameObject kingPrefab;
     public GameObject mainPanel;
+
+    [SerializeField] Timer timer1;
     
     public void ApplyEffect(CardEffectType effectType, string extraString) {
         player = PlayerLogic.getPlayerWithName(extraString);
@@ -51,6 +54,9 @@ public class CardEffects : MonoBehaviour
             case CardEffectType.MostLikely:
                 MostLikelyEffect();
                 break;
+            case CardEffectType.Timer:
+                TimerEffect(extraString);
+                break;
             default:
                 break;
         }
@@ -60,6 +66,12 @@ public class CardEffects : MonoBehaviour
     private void NoCardEffect() {
         Image panelImage = mainPanel.GetComponent<Image>();
         panelImage.color = new Color(0.0667f, 0.0667f, 0.0667f);
+    }
+
+    public void TimerEffect(string seconds) {
+        int secondsInt = int.Parse(seconds);
+        timer1.TimerPanelActive(true);
+        timer1.SetDuration(secondsInt);
     }
 
 

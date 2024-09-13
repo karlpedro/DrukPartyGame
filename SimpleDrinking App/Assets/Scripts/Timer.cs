@@ -8,6 +8,9 @@ public class Timer : MonoBehaviour {
    [Header ("Timer UI references :")]
    [SerializeField] private Image uiFillImage ;
    [SerializeField] private TextMeshProUGUI uiText ;
+   [SerializeField] AudioSource alarmSound;
+   public GameObject timerPanel;
+
 
    public int Duration { get; private set; }
 
@@ -106,10 +109,15 @@ public class Timer : MonoBehaviour {
 
    public void End () {
       if (onTimerEndAction != null)
+            onTimerEndAction.Invoke () ;
+        Debug.Log(" Vibrating ");
         Handheld.Vibrate();
-         onTimerEndAction.Invoke () ;
-
+        alarmSound.Play();
+        TimerPanelActive(false);
       ResetTimer () ;
+   }
+   public void TimerPanelActive(bool boolean) {
+       timerPanel.SetActive(boolean);
    }
 
 

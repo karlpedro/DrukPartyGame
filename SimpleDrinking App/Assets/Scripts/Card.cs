@@ -33,5 +33,6 @@ public enum CardEffectType
     MakeRule,
     NeverHave,
     MostLikely,
+    Timer,
     Reset
 }
